@@ -47,13 +47,60 @@ navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
 function onFail(message) {
 alert('Failed because: ' + message);
 }
+
  
 </script>
+
+<script language=javascript>
+function matriz(){ 
+    var matrix1 = [ [],[],[],[] ]
+    var matrix2 = [ [],[],[],[] ]
+    var matrix3 = [ [],[],[],[] ]
+
+    //colocando valores nas matrizes
+    for (var i=0; i<4; i++) {
+       for (var j=0; j<4; j++) {
+          matrix1[i][j] = i+j;
+       }
+    }
+    for (var i=0; i<4; i++) {
+       for (var j=0; j<4; j++) {
+          matrix2[i][j] = i+j;
+       }
+    }
+
+    //soma das matrizes
+    for (var i=0; i<4; i++) {
+       for (var j=0; j<4; j++) {
+          matrix3[i][j] = matrix1[i][j] + matrix1[i][j] ;
+       }
+    }
+
+
+    //escrevendo as matrizes na tela
+    for (var i=0; i<4; i++) {
+       for (var j=0; j<4; j++) {
+            document.write(i+"-"+j+" : "+matrix1[i][j]+"<br>");
+       }
+    }
+    document.write("<br><br>");
+    for (var i=0; i<4; i++) {
+       for (var j=0; j<4; j++) {
+            document.write(i+"-"+j+" : "+matrix2[i][j]+"<br>");
+       }
+    }
+    document.write("<br><br>");
+    for (var i=0; i<4; i++) {
+       for (var j=0; j<4; j++) {
+            document.write(i+"-"+j+" : "+matrix3[i][j]+"<br>");
+       }
+    }
+}
+
+</script>
 </head>
-<body>
+<body onload="matriz()">
 <button onclick="capturePhotoWithData();">Tirar Foto</button> <br>
-<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Foto de Imagens</button><br>
-<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Foto do album de fotos</button><br>
 <img style="display:none;width:90px;height:90px;" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
 </body>
